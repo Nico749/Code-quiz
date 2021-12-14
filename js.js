@@ -73,18 +73,9 @@ function nextQuestion2(){
   quizEl.appendChild(question);
   quizEl.appendChild(listEl);
   listEl.appendChild(li1);
-  li1.addEventListener("click",function(){
-    timeLeft+=20
-  })
   listEl.appendChild(li2);
-  li2.addEventListener("click",function(){
-    timeLeft+=20
-  })
   listEl.appendChild(li3);
   li3.addEventListener("click",function(){
-    var message=document.createElement("p")
-    message.textContent="Correct"
-    li3.appendChild(message)
     setTimeout(nextQuestion3, 3000);
   })
 }
@@ -100,19 +91,10 @@ function nextQuestion3(){
   listEl.appendChild(li1);
   listEl.appendChild(li2);
   listEl.appendChild(li3);
-  li1.addEventListener("click",function(){
-    timeLeft+=20
-  })
   listEl.appendChild(li2);
-  li2.addEventListener("click",function(){
-    timeLeft+=20
-  })
   listEl.appendChild(li3);
   li3.addEventListener("click",function(){
-    var message=document.createElement("p")
-    message.textContent="Correct"
-    li3.appendChild(message)
-    setTimeout(function(){
+     setTimeout(function(){
       alert("You finished!!")
     }, 3000);
   })
