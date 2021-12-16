@@ -20,7 +20,7 @@ Project is created with:
 * CSS
 
 ## Demo
-![Working demo](./jijo
+<a href="https://nico749.github.io/Code-quiz/" target="_blank">Demo</a>
 
 ## Project Status
 * Complete
