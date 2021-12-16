@@ -110,24 +110,25 @@ function takeScore() {
   x.setAttribute("type", "text")
   x.setAttribute("placeholder", "Username")
   x.setAttribute("id","username")
-  y.setAttribute("type", "text")
-  y.setAttribute("placeholder", "Score")
-  y.setAttribute("id","score")
+  //y.setAttribute("type", "text")
+  //y.setAttribute("placeholder", "Score")
+  //y.setAttribute("id","score")
   var text = document.createTextNode("Submit");
   btn.appendChild(text)
   btn.setAttribute("style","margin-top:30px")
   document.body.appendChild(btn)
   document.body.appendChild(x)
-  document.body.appendChild(y)
+  //document.body.appendChild(y)
   
   //these 2 lines don't work
-  var nickname = document.querySelector("#username").value;
-  var totalscore = document.querySelector("#score").value;
+  
+  //var totalscore = document.querySelector("#score").value;
   
   btn.addEventListener("click", function(event) {
   event.preventDefault();
+  var nickname = document.querySelector("#username").value;
   localStorage.setItem("username", nickname);
-  localStorage.setItem("totalscore", 33);
+  localStorage.setItem("totalscore", timeLeft);
   renderLastScore();
   }
 );
