@@ -1,3 +1,4 @@
+//retrievig and creating elements
 var timerElement = document.getElementById('countdown');
 var mainEl = document.getElementById('main');
 var myBtn1=document.getElementById('submitscore')
@@ -13,14 +14,11 @@ var listEl = document.createElement("ol");
 var li1 = document.createElement("li");
 var li2 = document.createElement("li");
 var li3 = document.createElement("li");
-
 var question=document.createElement("p")
 
-// function to generate timer 
+//generate timer 
 var timeLeft = 30;
-function countdown() {
-  
-  var time = setInterval(function () {
+var time = setInterval(function () {
     if (timeLeft >= 1) {
       timerElement.textContent = timeLeft;
       timeLeft--;
@@ -29,11 +27,10 @@ function countdown() {
       clearInterval(time);
       }
   }, 1000);
-}
+  
 
 //first question
 function nextQuestion1(){
-  countdown()
   question.textContent=questions[0]
   li1.textContent = answers[0].a;
   li2.textContent = answers[0].b;
@@ -42,7 +39,6 @@ function nextQuestion1(){
   li1.setAttribute("style","font-size:30px;font-family:italic; ")
   li2.setAttribute("style","font-size:30px;font-family:italic")
   li3.setAttribute("style","font-size:30px;font-family:italic")
-  
   document.body.appendChild(quizEl);
   quizEl.setAttribute("style","border:solid 5px red; border-radius:2%; box-shadow:10px 10px 10px 10px #b50505")
   quizEl.appendChild(question);
@@ -97,44 +93,42 @@ function nextQuestion3(){
   listEl.appendChild(li3);
   li3.addEventListener("click",function(){
      setTimeout(takeScore, 1500);
-     
-  })
+     clearInterval(time)
+     })
 }
+//start the game 
 myBtn2.addEventListener("click",nextQuestion1)
-//myBtn1.addEventListener("click",takeScore)
+
 
 function takeScore() {
-  var x = document.createElement("input")
-  var y= document.createElement("input")
+  //create button and input field for data submitting and remove the timer 
+  timerElement.textContent = '';
+  var userInput = document.createElement("input")
   var btn=document.createElement("button")
-  x.setAttribute("type", "text")
-  x.setAttribute("placeholder", "Username")
-  x.setAttribute("id","username")
-  //y.setAttribute("type", "text")
-  //y.setAttribute("placeholder", "Score")
-  //y.setAttribute("id","score")
+  userInput.setAttribute("type", "text")
+  userInput.setAttribute("placeholder", "Username")
+  userInput.setAttribute("id","username")
+  userInput.setAttribute("style","margin-left:30px; width:150px; height:30px; border-radius:3%")
   var text = document.createTextNode("Submit");
   btn.appendChild(text)
-  btn.setAttribute("style","margin-top:30px")
-  document.body.appendChild(btn)
-  document.body.appendChild(x)
-  //document.body.appendChild(y)
-  
-  //these 2 lines don't work
-  
-  //var totalscore = document.querySelector("#score").value;
-  
+  btn.setAttribute("style","margin-bottom:30px")
+  quizEl.appendChild(btn)
+  quizEl.appendChild(userInput)
+
   btn.addEventListener("click", function(event) {
   event.preventDefault();
   var nickname = document.querySelector("#username").value;
   localStorage.setItem("username", nickname);
   localStorage.setItem("totalscore", timeLeft);
-  renderLastScore();
   }
 );
 }
+//button to see last score 
+var scoreBtn=document.getElementById("scorebtn")
+scoreBtn.addEventListener("click",renderScore)
 
-function renderLastScore() {
+
+function renderScore() {
  var name = localStorage.getItem("username");
  var score = localStorage.getItem("totalscore");
  var x = document.createElement("p")

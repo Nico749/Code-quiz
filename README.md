@@ -23,12 +23,13 @@ Project is created with:
 <a href="https://nico749.github.io/Code-quiz/" target="_blank">Demo</a>
 
 ## Project Status
-* Complete
+* Working with minor changes required
 
 ## Room for Improvement
 Room for improvement:
 * Code refactoring necessary
-* Improve style 
+* Improve style
+* Timer shouldn't start before we start the quiz 
 
 ## Contact me 
 Created by [Nico Pasqualini](https://nico749.github.io/Personal-portfolio-/) - feel free to contact me!
